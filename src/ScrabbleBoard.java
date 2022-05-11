@@ -5,7 +5,7 @@ public class ScrabbleBoard extends JComponent {
 
     private final int ROWS = 21;
     private final int COLS = 21;
-    private ScrabbleSquare[][] board;
+    private final ScrabbleSquare[][] board;
 
     public ScrabbleBoard() {
         board = new ScrabbleSquare[ROWS][COLS];
@@ -30,6 +30,12 @@ public class ScrabbleBoard extends JComponent {
                 board[row][col].paint(g);
             }
         }
+    }
+
+    public void setLabel(int row, int col, String lbl) {
+        ScrabbleSquare ssq = board[row][col];
+        ssq.setLabel(lbl);
+        repaint();
     }
 
 }
